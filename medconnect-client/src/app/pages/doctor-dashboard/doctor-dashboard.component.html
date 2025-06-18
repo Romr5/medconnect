@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Doctor Dashboard</h3>
+  </div>
+
+  <div *ngIf="appointments.length === 0" class="alert alert-info">
+    No appointments yet.
+  </div>
+
+  <div *ngFor="let app of appointments" class="card mb-3 shadow-sm">
+    <div class="card-body">
+      <h5 class="mb-2">Patient ID: {{ app.patient_id }}</h5>
+      <p><strong>Date:</strong> {{ app.appointment_date }}</p>
+      <p><strong>Time:</strong> {{ app.appointment_time }}</p>
+      <p><strong>Notes:</strong> {{ app.notes || 'N/A' }}</p>
+
+      <div class="mb-3">
+        <label><strong>Status:</strong></label>
+<select [(ngModel)]="app.status" (change)="updateStatus(app)" class="form-select form-select-sm">
+  <option value="pending">Pending</option>
+  <option value="approved">Approved</option>
+  <option value="completed">Completed</option>
+  <option value="cancelled">Cancelled</option>
+</select>
+      </div>
+
+      <button
+        class="btn btn-outline-primary btn-sm"
+        (click)="writePrescription(app)">
+        <i class="bi bi-pencil"></i> Write Prescription
+      </button>
+    </div>
+  </div>
+</div>

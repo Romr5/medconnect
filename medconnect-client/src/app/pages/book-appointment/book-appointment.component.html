@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <h3 class="mb-4 text-primary">Book an Appointment</h3>
+
+  <form (ngSubmit)="book()" class="shadow p-4 rounded bg-light">
+    <!-- Doctor Dropdown -->
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Select Doctor</label>
+      <select class="form-select" [(ngModel)]="appointment.doctor_id" name="doctor_id" required>
+        <option value="" disabled selected>Select a doctor</option>
+        <option *ngFor="let doc of doctors" [value]="doc.id">
+          {{ doc.name }} - {{ doc.specialization || 'General' }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Date -->
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Appointment Date</label>
+      <input type="date" class="form-control" [(ngModel)]="appointment.appointment_date" name="date" required>
+    </div>
+
+    <!-- Time -->
+    <div class="mb-4">
+      <label class="form-label fw-semibold">Appointment Time</label>
+      <input type="time" class="form-control" [(ngModel)]="appointment.appointment_time" name="time" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary w-100">
+      <i class="bi bi-calendar-check-fill me-1"></i> Book Appointment
+    </button>
+  </form>
+</div>

@@ -1,0 +1,136 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center">
+    <h3>Admin Dashboard</h3>
+  </div>
+
+  <div class="text-end my-3">
+    <a routerLink="/register-doctor" class="btn btn-success">
+      <i class="bi bi-person-plus"></i> Register New Doctor
+    </a>
+  </div>
+
+  <!-- Appointments Table -->
+  <div class="mt-5">
+    <h4>All Appointments</h4>
+    <input type="text" class="form-control mb-2" placeholder="Search appointments..." [(ngModel)]="appointmentFilter" (input)="setAppointmentsPage(1)" />
+    <table class="table table-bordered table-striped">
+      <thead class="table-light">
+        <tr>
+          <th>Patient ID</th>
+          <th>Doctor ID</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Change Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of pagedAppointments">
+          <td>{{ a.patient_id }}</td>
+          <td>{{ a.doctor_id }}</td>
+          <td>{{ a.appointment_date }}</td>
+          <td>{{ a.appointment_time }}</td>
+          <td>{{ a.status }}</td>
+          <td>
+            <select class="form-select form-select-sm" [(ngModel)]="a.status" (change)="updateStatus(a)">
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="completed">Completed</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <nav aria-label="Appointments pagination">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="appointmentsCurrentPage === 1">
+          <button class="page-link" (click)="setAppointmentsPage(appointmentsCurrentPage - 1)">Previous</button>
+        </li>
+        <li class="page-item" *ngFor="let page of [].constructor(appointmentsTotalPages()); let i = index" [class.active]="appointmentsCurrentPage === i + 1">
+          <button class="page-link" (click)="setAppointmentsPage(i + 1)">{{ i + 1 }}</button>
+        </li>
+        <li class="page-item" [class.disabled]="appointmentsCurrentPage === appointmentsTotalPages()">
+          <button class="page-link" (click)="setAppointmentsPage(appointmentsCurrentPage + 1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Doctors Table -->
+  <div class="mt-5">
+    <h4>All Doctors</h4>
+    <input type="text" class="form-control mb-2" placeholder="Search doctors..." [(ngModel)]="doctorFilter" (input)="setDoctorsPage(1)" />
+    <table class="table table-bordered table-striped">
+      <thead class="table-light">
+        <tr>
+          <th>Name</th><th>Email</th><th>Phone</th><th>Specialization</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of pagedDoctors">
+          <td>{{ d.name }}</td>
+          <td>{{ d.email }}</td>
+          <td>{{ d.phone }}</td>
+          <td>{{ d.specialization || 'N/A' }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="deleteUser(d.id)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <nav aria-label="Doctors pagination">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="doctorsCurrentPage === 1">
+          <button class="page-link" (click)="setDoctorsPage(doctorsCurrentPage - 1)">Previous</button>
+        </li>
+        <li class="page-item" *ngFor="let page of [].constructor(doctorsTotalPages()); let i = index" [class.active]="doctorsCurrentPage === i + 1">
+          <button class="page-link" (click)="setDoctorsPage(i + 1)">{{ i + 1 }}</button>
+        </li>
+        <li class="page-item" [class.disabled]="doctorsCurrentPage === doctorsTotalPages()">
+          <button class="page-link" (click)="setDoctorsPage(doctorsCurrentPage + 1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Patients Table -->
+  <div class="mt-5">
+    <h4>All Patients</h4>
+    <input type="text" class="form-control mb-2" placeholder="Search patients..." [(ngModel)]="patientFilter" (input)="setPatientsPage(1)" />
+    <table class="table table-bordered table-striped">
+      <thead class="table-light">
+        <tr>
+          <th>Name</th><th>Email</th><th>Phone</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pagedPatients">
+          <td>{{ p.name }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ p.phone }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="deleteUser(p.id)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <nav aria-label="Patients pagination">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="patientsCurrentPage === 1">
+          <button class="page-link" (click)="setPatientsPage(patientsCurrentPage - 1)">Previous</button>
+        </li>
+        <li class="page-item" *ngFor="let page of [].constructor(patientsTotalPages()); let i = index" [class.active]="patientsCurrentPage === i + 1">
+          <button class="page-link" (click)="setPatientsPage(i + 1)">{{ i + 1 }}</button>
+        </li>
+        <li class="page-item" [class.disabled]="patientsCurrentPage === patientsTotalPages()">
+          <button class="page-link" (click)="setPatientsPage(patientsCurrentPage + 1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

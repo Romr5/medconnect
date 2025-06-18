@@ -1,0 +1,88 @@
+<!-- HERO SECTION -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+        <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeInLeft">
+          Welcome to MedConnect
+        </h1>
+        <p class="lead text-muted">
+          Book appointments, manage prescriptions, and access digital healthcare from anywhere.
+        </p>
+
+        <!-- CTA Buttons -->
+        <ng-container *ngIf="!user">
+          <a routerLink="/register" class="btn btn-success btn-lg mt-3 shadow">
+            Get Started
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="user?.role === 'patient'">
+          <a routerLink="/book-appointment" class="btn btn-primary btn-lg mt-3 shadow">
+            <i class="bi bi-calendar-plus me-1"></i> Book Appointment
+          </a>
+        </ng-container>
+
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="doctor-welcome1.png" alt="Doctor Welcome" class="img-fluid animate__animated animate__fadeInRight" style="max-height: 300px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-semibold mb-3 animate__animated animate__fadeInUp">Who We Help</h2>
+    <p class="text-muted mb-5">Designed for patients, doctors, and admins to improve every healthcare interaction.</p>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <img src="patient1.png" alt="Patient" class="img-fluid mb-3">
+          <h5 class="fw-bold">For Patients</h5>
+          <p class="text-muted">Book appointments, view history, and download prescriptions seamlessly.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <img src="doctor1.png" alt="Doctor" class="img-fluid mb-3">
+          <h5 class="fw-bold">For Doctors</h5>
+          <p class="text-muted">Manage schedules, prescribe digitally, and track patient status in one place.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100 p-4">
+          <img src="admin1.png" alt="Admin" class="img-fluid mb-3">
+          <h5 class="fw-bold">For Admins</h5>
+          <p class="text-muted">Control access, approve users, and ensure smooth healthcare coordination.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4 animate__animated animate__fadeInUp">Why Choose MedConnect?</h2>
+    <p class="lead text-muted mb-5">Simple. Secure. Seamless.</p>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <i class="bi bi-shield-lock-fill text-primary" style="font-size: 2rem;"></i>
+        <h6 class="mt-3 fw-semibold">Safe & Secure</h6>
+        <p class="text-muted">Your medical data is protected and encrypted.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="bi bi-clock-history text-success" style="font-size: 2rem;"></i>
+        <h6 class="mt-3 fw-semibold">24/7 Access</h6>
+        <p class="text-muted">Book appointments anytime, anywhere.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="bi bi-laptop text-info" style="font-size: 2rem;"></i>
+        <h6 class="mt-3 fw-semibold">Fully Digital</h6>
+        <p class="text-muted">No paperwork — everything is online and downloadable.</p>
+      </div>
+    </div>
+  </div>
+</section>

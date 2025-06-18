@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top px-3">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">MedConnect</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <!-- Display User Name & Avatar -->
+        <li class="nav-item d-flex align-items-center me-3" *ngIf="user?.name">
+          <div class="d-flex align-items-center">
+            <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center me-2"
+                 style="width: 35px; height: 35px; font-size: 1rem;">
+              {{ user.name.charAt(0).toUpperCase() }}
+            </div>
+            <span class="navbar-text small fw-semibold text-dark">
+              Hi, {{ user.name.split(' ')[0] }}
+            </span>
+          </div>
+        </li>
+
+        <!-- Authenticated Navigation -->
+        <ng-container *ngIf="user">
+
+          <!-- Patient -->
+          <ng-container *ngIf="user.role === 'patient'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/patient" routerLinkActive="active">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/book-appointment" routerLinkActive="active"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/my-prescriptions" routerLinkActive="active">Prescriptions</a>
+            </li>
+          </ng-container>
+
+          <!-- Doctor -->
+          <ng-container *ngIf="user.role === 'doctor'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/doctor" routerLinkActive="active">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/write-prescription" routerLinkActive="active">Write</a>
+            </li>
+          </ng-container>
+
+          <!-- Admin -->
+          <ng-container *ngIf="user.role === 'admin'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+            </li>
+          </ng-container>
+
+        
+        </ng-container>
+
+        <!-- Logout Button -->
+        <ng-container *ngIf="user">
+          <li class="nav-item">
+            <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+          </li>
+        </ng-container>
+
+        <!-- Guest Links -->
+        <ng-container *ngIf="!user">
+          <li class="nav-item">
+            <a routerLink="/login-choice" class="btn btn-outline-primary">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>

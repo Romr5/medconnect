@@ -1,0 +1,60 @@
+h1 span {
+  font-weight: bold;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 1rem;
+  }
+  .card img {
+    width: 140px;
+    height: 140px;
+  }
+  .card h5 {
+    font-size: 1.25rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h3>My Prescriptions</h3>
+  <div *ngIf="prescriptions.length === 0">No prescriptions yet.</div>
+
+  <div *ngFor="let pres of prescriptions" class="card mb-3">
+    <div class="card-body">
+      <h5>Doctor: {{ pres.doctor_name }}</h5>
+      <p><strong>Notes:</strong> {{ pres.notes }}</p>
+      <p class="text-muted">Date: {{ pres.created_at | date: 'medium' }}</p>
+      <button class="btn btn-outline-primary btn-sm" (click)="downloadPDF(pres)">
+        Download PDF
+      </button>
+    </div>
+  </div>
+</div>

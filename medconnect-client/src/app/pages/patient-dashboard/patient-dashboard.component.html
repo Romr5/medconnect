@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <h3>My Appointments</h3>
+  <div *ngIf="appointments.length === 0">No appointments yet.</div>
+
+  <div *ngFor="let app of appointments" class="card mb-3">
+    <div class="card-body">
+      <h5>Doctor ID: {{ app.doctor_id }}</h5>
+      <p>Date: {{ app.appointment_date }}</p>
+      <p>Time: {{ app.appointment_time }}</p>
+      <p>Status: {{ app.status }}</p>
+      <p><strong>Notes:</strong> {{ app.notes || 'N/A' }}</p>
+    </div>
+  </div>
+</div>
