@@ -1,10 +1,10 @@
-# 🌐 MedConnect – Online Doctor Appointment & Healthcare Portal
+#  MedConnect – Online Doctor Appointment & Healthcare Portal
 
 **MedConnect** is a full-stack web application designed to simplify and digitize healthcare workflows. It enables **patients** to book appointments, **doctors** to manage and respond to appointments and prescriptions, and **admins** to oversee the entire clinic operation efficiently.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 medconnect-full/
@@ -22,23 +22,23 @@ medconnect-full/
 
 ---
 
-## 👩‍⚕️ Core Features
+##  Core Features
 
-### ✅ For Patients
+### For Patients
 
 * Register and log in using **OP number**
 * Book appointments by selecting a doctor, date, and time
 * View upcoming and past appointments
 * View/download prescriptions written by doctors
 
-### ✅ For Doctors
+###  For Doctors
 
 * Log in using email and password
 * View list of all appointments assigned to them
 * Update appointment status (Pending → Approved → Completed)
 * Write and manage prescriptions for patients
 
-### ✅ For Admins
+### For Admins
 
 * Log in with elevated access
 * Register new doctors
@@ -48,7 +48,7 @@ medconnect-full/
 
 ---
 
-## 🧑‍💻 Technologies Used
+##  Technologies Used
 
 | Layer          | Tech Stack                      |
 | -------------- | ------------------------------- |
@@ -60,7 +60,7 @@ medconnect-full/
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 * Admins & doctors log in via **email/password**
 * Patients log in using a unique **OP number**
@@ -69,7 +69,7 @@ medconnect-full/
 
 ---
 
-## 🗓️ Appointment Workflow
+##  Appointment Workflow
 
 1. **Patient books** an appointment → status set to `pending`
 2. **Admin approves** it → status becomes `approved`
@@ -77,27 +77,27 @@ medconnect-full/
 
 ---
 
-## 📋 Modules
+##  Modules
 
-### 🏠 Home Page
+###  Home Page
 
 * Universal landing page
 * Sections for Patients, Doctors, and Admins
 * Login/Register options clearly segmented
 
-### 👨‍⚕️ Admin Dashboard
+###  Admin Dashboard
 
 * Pagination-ready tables for doctors and patients
 * Doctor registration form
 * Appointment overview (with status management)
 
-### 🧪 Doctor Dashboard
+### Doctor Dashboard
 
 * Appointments list filtered by doctor
 * Update status inline (dropdown)
 * Button to write prescriptions
 
-### 👨‍💼 Patient Dashboard
+### Patient Dashboard
 
 * Book new appointments
 * View appointment history
@@ -105,7 +105,7 @@ medconnect-full/
 
 ---
 
-## 📸 UI Screens (Highlights)
+## UI Screens (Highlights)
 
 * Modern UI using Bootstrap
 * Responsive and mobile-friendly layout
@@ -114,7 +114,7 @@ medconnect-full/
 
 ---
 
-## 🗓️ Database Schema (Simplified)
+##  Database Schema (Simplified)
 
 ### `users` table
 
@@ -130,7 +130,7 @@ medconnect-full/
 
 ---
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 * Password reset functionality via email
 * Token-based authentication (JWT)
@@ -139,7 +139,7 @@ medconnect-full/
 
 ---
 
-## 🔗 How to Run Locally
+##  How to Run Locally
 
 ### 1. Backend (PHP + MySQL)
 
@@ -159,6 +159,6 @@ Visit `http://localhost:4200`
 
 ---
 
-## 📜 Conclusion
+## Conclusion
 
 MedConnect is a scalable, modular healthcare management solution that streamlines appointment scheduling, prescription handling, and clinic administration. It demonstrates effective use of modern web development technologies with clean UI and role-based functionalities.
